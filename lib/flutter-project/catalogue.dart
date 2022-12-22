@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
-class Scene extends StatelessWidget {
+class CataloguePage extends StatelessWidget {
+  const CataloguePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 428;
@@ -555,6 +554,7 @@ class Scene extends StatelessWidget {
                 ),
               ),
             ),
+            // Bottom Navbar Must edit
             Positioned(
               // group17n6 (44:4)
               left: 0*fem,
