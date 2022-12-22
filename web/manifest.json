@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
     "name": "test",
     "short_name": "test",
-=======
-    "name": "bouquet_shop",
-    "short_name": "bouquet_shop",
->>>>>>> daf850c645dffccaafde141ec95469dbbe1c7e24
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

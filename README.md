@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # test
-=======
-# bouquet_shop
->>>>>>> daf850c645dffccaafde141ec95469dbbe1c7e24
 
 A new Flutter project.
 
