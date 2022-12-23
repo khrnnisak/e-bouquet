@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/flutter-project/catalogue.dart';
-import 'package:myapp/utils.dart';
+import 'package:myapp/flutter-project/login.dart';
 // import 'package:myapp/flutter-project/login.dart';
 // import 'package:myapp/flutter-project/description.dart';
 // import 'package:myapp/flutter-project/opening-page.dart';
@@ -18,17 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Project UAS E-Bouquet',
-      debugShowCheckedModeBanner: false,
-      scrollBehavior: MyCustomScrollBehavior(),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Scaffold(
-        body: SingleChildScrollView(
-          child: CataloguePage(),
+        title: 'Project UAS E-Bouquet',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
         ),
-      ),
-    );
+        home: const LoginPage());
   }
 }
