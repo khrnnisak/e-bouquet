@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
+<<<<<<< HEAD:lib/flutter-project/description.dart
 class Description extends StatelessWidget {
+=======
+class DetailItemPage extends StatelessWidget {
+  const DetailItemPage({super.key});
+
+>>>>>>> 7d1403a930aca7e4ce402a989e6c935b0118ce6f:lib/flutter-project/detail_item.dart
   @override
   Widget build(BuildContext context) {
     double baseWidth = 428;

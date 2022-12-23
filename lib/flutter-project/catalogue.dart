@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,6 +7,13 @@ import 'package:myapp/flutter-project/description.dart';
 import 'package:myapp/utils.dart';
 
 class Catalog extends StatelessWidget {
+=======
+import 'package:myapp/utils.dart';
+
+class CataloguePage extends StatelessWidget {
+  const CataloguePage({super.key});
+
+>>>>>>> 7d1403a930aca7e4ce402a989e6c935b0118ce6f
   @override
   Widget build(BuildContext context) {
     double baseWidth = 428;
@@ -120,6 +128,7 @@ class Catalog extends StatelessWidget {
                 ),
               ),
             ),
+            // Bottom Navbar Must edit
             Positioned(
               // group17n6 (44:4)
               left: 0 * fem,
