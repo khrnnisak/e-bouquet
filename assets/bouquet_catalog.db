@@ -1,0 +1,121 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 24 Des 2022 pada 01.23
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 8.1.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `bouquet_catalog`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `catalog`
+--
+
+CREATE TABLE `catalog` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `harga` varchar(50) NOT NULL,
+  `gambar` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `catalog`
+--
+
+INSERT INTO `catalog` (`id`, `nama`, `harga`, `gambar`) VALUES
+(1, 'Say Love ', '65.000', '01c24ac7fb3d1f836e83546ef83413fe.jpg'),
+(2, 'Graduated with Sunflowers', '65.000', '7c2a440ed0d17d25f9b029d692838fe8.jpg'),
+(3, 'Single Rose', '25.000', '8a6628d8a32f09b3b3981fd93e87a30a.jpg'),
+(4, 'Pinky Bunny', '45.000', 'cba8974a0d88e2d344ed1f719c74d5c7.jpg'),
+(5, 'Happy Graduation', '65.000', '184b0f3110dbb8da679d6e7a5aab7166.jpg'),
+(6, 'Oh My Pink Rose', '50.000', '6f6e694b4069ee978ab28252eea1117c.jpg'),
+(7, 'Fresh Blossom', '67.000', 'e082fb0d8ee1358f0a171cb8c5d1bb06.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `description`
+--
+
+CREATE TABLE `description` (
+  `id_desc` int(11) UNSIGNED NOT NULL,
+  `id_catalog` int(11) UNSIGNED NOT NULL,
+  `desc` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `description`
+--
+
+INSERT INTO `description` (`id_desc`, `id_catalog`, `desc`) VALUES
+(1, 1, 'Buket berbentuk hati dengan rangkaian bunga mawar merah muda yang elegan'),
+(2, 2, 'Aura ceria dari cerahnya bunga matahari memberikan kebahagiaan kepada mereka yang sedang merayakan kelulusan'),
+(3, 3, 'Rangkaian bunga mawar yang cantik dan simple namun tetap berkesan '),
+(4, 4, 'Perpaduan mawar merah muda dan teddy bear lucu untuk menyampaikan perasaanmu'),
+(5, 5, 'Ketulusan hati disampaikan melalui putihnya bunga yang menghiasi bersama teddy'),
+(6, 6, 'Si merah muda elegan dibungkus dengan perpaduan kertas hitam dan putih'),
+(7, 7, 'Warna-warni keceriaan ditumpahkan dalam satu rangkaian buket indah');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `catalog`
+--
+ALTER TABLE `catalog`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `description`
+--
+ALTER TABLE `description`
+  ADD PRIMARY KEY (`id_desc`),
+  ADD KEY `id_catalog` (`id_catalog`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `catalog`
+--
+ALTER TABLE `catalog`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `description`
+--
+ALTER TABLE `description`
+  MODIFY `id_desc` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `description`
+--
+ALTER TABLE `description`
+  ADD CONSTRAINT `description_ibfk_1` FOREIGN KEY (`id_catalog`) REFERENCES `catalog` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
