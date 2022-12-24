@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/cart.dart';
-// import 'package:myapp/flutter-project/login.dart';
-// import 'package:myapp/flutter-project/description.dart';
-// import 'package:myapp/flutter-project/opening-page.dart';
-// import 'package:myapp/flutter-project/catalogue.dart';
-// import 'package:myapp/flutter-project/sign-up.dart';
-// import 'package:myapp/flutter-project/home.dart';
-// import 'package:myapp/flutter-project/minus.dart';
+import 'package:myapp/pages/home.dart';
+import 'package:myapp/pages/opening_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -21,6 +16,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: CartPage());
+        home: const HomePage());
   }
 }
