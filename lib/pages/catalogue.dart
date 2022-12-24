@@ -2,52 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/dbhelper/dphelper.dart';
-import 'package:myapp/flutter-project/detail_item.dart';
-import 'package:myapp/model.dart';
+import 'package:myapp/pages/detail_item.dart';
 import 'package:myapp/utils.dart';
-import 'package:sqflite/sqflite.dart';
 
-List<Bouquet> bouquet_list = [];
-
-class CatalogHome extends StatefulWidget {
-  const CatalogHome({Key? key}) : super(key: key);
-
-  @override
-  State<CatalogHome> createState() => Catalog();
-}
-
-class Catalog extends State<CatalogHome> {
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
-
-  void getData() async {
-    var dbhelper = DBHelper();
-    List<Bouquet> _bouquet_list = await dbhelper.getBouquet();
-    setState(() {
-      bouquet_list = _bouquet_list;
-    });
-  }
-
+class Catalog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(
-      child: FutureBuilder(
-          //fetch data
-          builder: (BuildContext context, AsyncSnapshot) {
-        return ListView.builder(
-            itemCount: bouquet_list.length,
-            itemBuilder: (context, index) {
-              return displayCatalog(bouquet_list[index]);
-            });
-      }),
-    ));
-  }
-
-  Widget displayCatalog(index) {
     double baseWidth = 428;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -57,7 +17,7 @@ class Catalog extends State<CatalogHome> {
         // catalogueGuU (22:327)
         width: double.infinity,
         height: 926 * fem,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Color(0xfff99da1),
         ),
         child: Stack(
@@ -105,13 +65,13 @@ class Catalog extends State<CatalogHome> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     Image.asset(
-                                      bouquet_list[index].gambar,
+                                      'assets/flutter-project/images/f6e694b4069ee978ab28252eea1117c-1.png',
                                       width: 200,
                                       height: 150,
                                       fit: BoxFit.cover,
                                     ),
                                     Text(
-                                      bouquet_list[index].nama,
+                                      'Pink Bouquet Rose',
                                       style: SafeGoogleFont(
                                         'IBM Plex Sans Hebrew',
                                         fontSize: 20,
@@ -122,7 +82,7 @@ class Catalog extends State<CatalogHome> {
                                       ),
                                     ),
                                     Text(
-                                      'Rp ' + bouquet_list[index].harga,
+                                      'Rp 50.000',
                                       style: SafeGoogleFont(
                                         'IBM Plex Sans Hebrew',
                                         fontSize: 15,
@@ -154,12 +114,13 @@ class Catalog extends State<CatalogHome> {
                       fontWeight: FontWeight.w400,
                       height: 1.25 * ffem / fem,
                       letterSpacing: -0.3000000119 * fem,
-                      color: const Color(0xffffffff),
+                      color: Color(0xffffffff),
                     ),
                   ),
                 ),
               ),
             ),
+            // Bottom Navbar Must edit
             Positioned(
               // group17n6 (44:4)
               left: 0 * fem,
