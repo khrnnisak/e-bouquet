@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/bottom_navbar.dart';
 import 'package:myapp/utils.dart';
 
 class CartPage extends StatelessWidget {
@@ -26,7 +27,7 @@ class CartPage extends StatelessWidget {
                     fontSize: 40 * fem, color: Colors.white),
               ),
             ),
-            Expanded(child: createListCartView()),
+            // Expanded(child: createListCartView()),
             Container(
                 margin: EdgeInsets.fromLTRB(30 * fem, 0, 30 * fem, 30 * fem),
                 height: 150 * fem,
@@ -39,21 +40,22 @@ class CartPage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: const BottomNavbar(),
     );
   }
 }
 
-ListView createListCartView() {
-  return ListView.builder(
-    shrinkWrap: true,
-    itemBuilder: (context, index) => Card(
-        color: Colors.white,
-        elevation: 2.0,
-        child: ListTile(
-            leading: Image(
-          image: AssetImage('b0f3110dbb8da679d6e7a5aab7166-1.png'),
-          height: 80,
-          width: 80,
-        ))),
-  );
-}
+// ListView createListCartView() {
+//   return ListView.builder(
+//     shrinkWrap: true,
+//     itemBuilder: (context, index) => Card(
+//         color: Colors.white,
+//         elevation: 2.0,
+//         child: ListTile(
+//             leading: Image(
+//           image: AssetImage('b0f3110dbb8da679d6e7a5aab7166-1.png'),
+//           height: 80,
+//           width: 80,
+//         ))),
+//   );
+// }

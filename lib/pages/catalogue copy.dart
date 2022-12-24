@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/dbhelper/dphelper.dart';
+import 'package:myapp/pages/bottom_navbar.dart';
 import 'package:myapp/pages/detail_item.dart';
 import 'package:myapp/model/bouquet.dart';
 import 'package:myapp/utils.dart';
@@ -34,17 +35,20 @@ class Catalog extends State<CatalogHome> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(
-      child: FutureBuilder(
-          //fetch data
-          builder: (BuildContext context, AsyncSnapshot) {
-        return ListView.builder(
-            itemCount: bouquet_list.length,
-            itemBuilder: (context, index) {
-              return displayCatalog(bouquet_list[index]);
-            });
-      }),
-    ));
+    return Scaffold(
+      body: SafeArea(
+        child: FutureBuilder(
+            //fetch data
+            builder: (BuildContext context, AsyncSnapshot) {
+          return ListView.builder(
+              itemCount: bouquet_list.length,
+              itemBuilder: (context, index) {
+                return displayCatalog(bouquet_list[index]);
+              });
+        }),
+      ),
+      bottomNavigationBar: const BottomNavbar(),
+    );
   }
 
   Widget displayCatalog(index) {
@@ -94,7 +98,7 @@ class Catalog extends State<CatalogHome> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          Description()));
+                                          DetailItemPage()));
                             },
                             child: Card(
                               elevation: 10,
@@ -156,22 +160,6 @@ class Catalog extends State<CatalogHome> {
                       letterSpacing: -0.3000000119 * fem,
                       color: const Color(0xffffffff),
                     ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              // group17n6 (44:4)
-              left: 0 * fem,
-              top: 847 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 428 * fem,
-                  height: 96 * fem,
-                  child: Image.asset(
-                    'assets/flutter-project/images/group-1.png',
-                    width: 428 * fem,
-                    height: 96 * fem,
                   ),
                 ),
               ),
