@@ -1,11 +1,15 @@
 class Bouquet {
-  late int id;
-  late String nama, harga, gambar;
+  late int id, harga;
+  late String nama, gambar;
 
-  Bouquet(
-    this.id,
-    this.nama,
-    this.harga,
-    this.gambar,
-  );
+  Bouquet({required this.nama, required this.harga, required this.gambar});
+
+  Map toJson() {
+    return {
+      'id': id,
+      'nama': nama,
+      'harga': harga,
+      'gambar': gambar,
+    };
+  }
 }
