@@ -38,92 +38,99 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff99da1),
-      appBar: AppBar(
-        title: Text(
-          'Halaman Utama',
-          style: SafeGoogleFont('Lexend Deca'),
+        backgroundColor: const Color(0xfff99da1),
+        appBar: AppBar(
+          title: Text(
+            'Halaman Utama',
+            style: SafeGoogleFont('Lexend Deca'),
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          automaticallyImplyLeading: false,
         ),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        automaticallyImplyLeading: false,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            CarouselSlider(
-              options: CarouselOptions(
-                height: 150.0,
-                autoPlay: true,
-                autoPlayInterval: const Duration(seconds: 3),
-                autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                pauseAutoPlayOnTouch: true,
-                aspectRatio: 2.0,
-                viewportFraction: 1,
-                enlargeCenterPage: true,
-                onPageChanged: (index, reason) =>
-                    setState(() => currentIndex = index),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              CarouselSlider(
+                options: CarouselOptions(
+                  height: 230.0,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 3),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  pauseAutoPlayOnTouch: true,
+                  aspectRatio: 2.0,
+                  viewportFraction: 1,
+                  enlargeCenterPage: true,
+                  onPageChanged: (index, reason) =>
+                      setState(() => currentIndex = index),
+                ),
+                items: imgList.map<Widget>((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(i), fit: BoxFit.cover)));
+                    },
+                  );
+                }).toList(),
               ),
-              items: imgList.map<Widget>((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(i), fit: BoxFit.cover)));
-                  },
-                );
-              }).toList(),
-            ),
-            const SizedBox(height: 30),
-            buildIndicator(),
-            Container(
-              margin: const EdgeInsets.only(top: 10),
-              height: 20,
-              color: Colors.white,
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 15, left: 10, right: 10),
-              alignment: Alignment.centerLeft,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Baru-baru ini',
-                    style: SafeGoogleFont(
-                      'Lexend Deca',
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+              const SizedBox(height: 10),
+              buildIndicator(),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                height: 20,
+                color: Colors.white,
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 15, left: 10, right: 10),
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Baru-baru ini',
+                      style: SafeGoogleFont(
+                        'Lexend Deca',
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  RichText(
-                      text: TextSpan(
-                          text: 'Lihat semua',
-                          style: SafeGoogleFont(
-                            'Lexend Deca',
-                            color: Colors.white,
-                            fontSize: 15,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const CatalogHome(),
-                                  ));
-                            }))
-                ],
+                    RichText(
+                        text: TextSpan(
+                            text: 'Lihat semua',
+                            style: SafeGoogleFont(
+                              'Lexend Deca',
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const CatalogHome(),
+                                    ));
+                              }))
+                  ],
+                ),
               ),
-            ),
-            const HomeListItem()
-          ],
-        ),
-      ),
-      // bottomNavigationBar: const BottomNavbar(),
-    );
+              const HomeListItem(),
+            ],
+          ),
+          // bottomNavigationBar: ConvexAppBar(
+          //   items: const [
+          //     TabItem(icon: Icons.home, title: 'Home'),
+          //     TabItem(icon: Icons.collections, title: 'Katalog'),
+          //     TabItem(icon: Icons.shopping_cart, title: 'Keranjang'),
+          //   ],
+          //   initialActiveIndex: selectedNavbar,
+          //   onTap: changeSelectedNavbar,
+          // ),
+        ));
   }
 
   Widget buildIndicator() => AnimatedSmoothIndicator(
