@@ -53,7 +53,7 @@ class DetailOrder extends State<DetailOrderPage> {
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
     void saveData(int index) {
-      dbHelper.getOrderList(bouquet_list[index].id).then((value) {
+      dbHelper.getOrderList(bouquet_list[index].id.toString()).then((value) {
         cart.addTotalPrice(bouquet_list[index].harga.toDouble());
         cart.addCounter();
         print('Product Added to cart');

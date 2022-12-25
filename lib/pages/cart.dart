@@ -194,7 +194,9 @@ class _CartPageState extends State<CartPage> {
                                     style: ElevatedButton.styleFrom(
                                         primary: Colors.blueGrey.shade900),
                                     onPressed: () {
-                                      provider.cart[index].productId!;
+                                      dbHelper!.getOrderList(provider
+                                          .cart[index].productId
+                                          .toString());
                                     },
                                     child: GestureDetector(
                                       child: const Text('Pesan'),
