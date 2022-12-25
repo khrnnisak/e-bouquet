@@ -5,6 +5,7 @@ import 'package:myapp/model/bouquet.dart';
 import 'package:myapp/model/cart_model.dart';
 import 'package:myapp/pages/cart.dart';
 import 'package:myapp/provider/cart_provider.dart';
+import 'package:myapp/utils.dart';
 import 'package:provider/provider.dart';
 
 class CatalogHome extends StatefulWidget {
@@ -75,10 +76,15 @@ class Catalog extends State<CatalogHome> {
     }
 
     return Scaffold(
+      backgroundColor: const Color(0xfff99da1),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color(0xfff99da1),
-        title: const Text('Catalog'),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        title: Text(
+          'Catalog',
+          style: SafeGoogleFont('Lexend Deca'),
+        ),
         actions: [
           Badge(
             badgeContent: Consumer<CartProvider>(
@@ -110,7 +116,7 @@ class Catalog extends State<CatalogHome> {
         itemCount: bouquet_list.length,
         itemBuilder: (context, index) {
           return Card(
-            color: Colors.blueGrey.shade200,
+            color: Colors.white70,
             elevation: 5,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -139,14 +145,15 @@ class Catalog extends State<CatalogHome> {
                                 text:
                                     '${bouquet_list[index].nama.toString()}\n',
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.bold)),
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
                           ),
                           RichText(
                             maxLines: 1,
                             text: TextSpan(
                                 text: "Rp ",
                                 style: TextStyle(
-                                    color: Colors.blueGrey.shade800,
+                                    color: Colors.blueGrey[800],
                                     fontSize: 16.0),
                                 children: [
                                   TextSpan(
