@@ -64,7 +64,10 @@ flutter:
   assets:
     - assets/flutter-project/images/
     - assets/bouquet_catalog.db
+<<<<<<< HEAD
     - assets/material/
+=======
+>>>>>>> c81466e220e1da8044d2288a4d0ef901b26a04bd
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

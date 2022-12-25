@@ -190,6 +190,25 @@ class _CartPageState extends State<CartPage> {
                                       Icons.delete,
                                       color: Colors.red.shade800,
                                     )),
+                                ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Colors.blueGrey.shade900),
+                                    onPressed: () {
+                                      dbHelper!.getOrderList(provider
+                                          .cart[index].productId
+                                          .toString());
+                                    },
+                                    child: GestureDetector(
+                                      child: const Text('Pesan'),
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailOrderPage(),
+                                            ));
+                                      },
+                                    )),
                               ],
                             ),
                           ),
@@ -223,27 +242,26 @@ class _CartPageState extends State<CartPage> {
         ],
       ),
       bottomNavigationBar: InkWell(
-        onTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Pembayaran Berhasil'),
-              duration: Duration(seconds: 2),
+          onTap: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Pembayaran Berhasil'),
+                duration: Duration(seconds: 2),
+              ),
+            );
+          },
+          child: Container(
+            color: Colors.yellow.shade600,
+            alignment: Alignment.center,
+            height: 50.0,
+            child: const Text(
+              'Lanjutkan Pembayaran',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          );
-        },
-        child: Container(
-          color: Colors.yellow.shade600,
-          alignment: Alignment.center,
-          height: 50.0,
-          child: const Text(
-            'Lanjutkan Pembayaran',
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
+          )),
     );
   }
 }

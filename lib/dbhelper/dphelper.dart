@@ -55,9 +55,10 @@ class DBHelper {
     return await dbClient!.delete('cart', where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<List<Map<String, Object?>>> getOrderList(Cart cart) async {
+  Future<List<Cart>> getOrderList(String id) async {
     var dbClient = await database;
-    return await dbClient!
-        .query('cart', where: "productId = ?", whereArgs: [cart.productId]);
+    final List<Map<String, Object?>> queryResult =
+        await dbClient!.query('cart', where: "productId = ?", whereArgs: [id]);
+    return queryResult.map((result) => Cart.fromMap(result)).toList();
   }
 }
