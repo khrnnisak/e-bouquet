@@ -89,20 +89,28 @@ class OpeningPage extends StatelessWidget {
               // ),
             ),
             Container(
-              margin: const EdgeInsets.all(20),
+              margin: const EdgeInsets.only(bottom: 70, right: 30),
               child: Align(
                 alignment: Alignment.bottomRight,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomePage(),
-                        ));
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xfffe007a)),
-                  child: const Text('Masuk'),
+                child: SizedBox(
+                  height: 50,
+                  width: 100,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePage(),
+                          ));
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xfffe007a)),
+                    child: Text(
+                      'Masuk',
+                      style: SafeGoogleFont('Montserrat',
+                          fontWeight: FontWeight.w800),
+                    ),
+                  ),
                 ),
               ),
             )
