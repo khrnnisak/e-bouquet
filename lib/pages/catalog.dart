@@ -68,7 +68,7 @@ class Catalog extends State<CatalogHome> {
           .then((value) {
         cart.addTotalPrice(bouquet_list[index].harga.toDouble());
         cart.addCounter();
-        print('Product Added to cart');
+        print('Produk di dalam Keranjang');
       }).onError((error, stackTrace) {
         print(error.toString());
       });
@@ -77,7 +77,8 @@ class Catalog extends State<CatalogHome> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Product List'),
+        backgroundColor: Color(0xfff99da1),
+        title: const Text('Catalog'),
         actions: [
           Badge(
             badgeContent: Consumer<CartProvider>(
@@ -103,55 +104,47 @@ class Catalog extends State<CatalogHome> {
           ),
         ],
       ),
-      body: ListView.builder(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 8.0),
-          shrinkWrap: true,
-          itemCount: bouquet_list.length,
-          itemBuilder: (context, index) {
-            return Card(
-              color: Colors.blueGrey.shade200,
-              elevation: 5.0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Image(
-                      height: 80,
-                      width: 80,
-                      image: AssetImage(bouquet_list[index].gambar.toString()),
-                    ),
-                    SizedBox(
-                      width: 130,
+      body: GridView.builder(
+        //padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 8.0),
+        shrinkWrap: true,
+        itemCount: bouquet_list.length,
+        itemBuilder: (context, index) {
+          return Card(
+            color: Colors.blueGrey.shade200,
+            elevation: 5,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16),
+              child: Wrap(
+                spacing: 8.0, // gap between adjacent chips
+                runSpacing: 5.0, // gap between lines
+                direction: Axis.horizontal, // main axis (rows or columns)
+                children: [
+                  Center(
+                    child: SingleChildScrollView(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(
-                            height: 5.0,
+                          Image(
+                            height: 100,
+                            width: 150,
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                                bouquet_list[index].gambar.toString()),
                           ),
                           RichText(
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             text: TextSpan(
-                                text: 'Nama: ',
-                                style: TextStyle(
-                                    color: Colors.blueGrey.shade800,
-                                    fontSize: 16.0),
-                                children: [
-                                  TextSpan(
-                                      text:
-                                          '${bouquet_list[index].nama.toString()}\n',
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold)),
-                                ]),
+                                text:
+                                    '${bouquet_list[index].nama.toString()}\n',
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold)),
                           ),
                           RichText(
                             maxLines: 1,
                             text: TextSpan(
-                                text: 'Harga: ' r"Rp ",
+                                text: "Rp ",
                                 style: TextStyle(
                                     color: Colors.blueGrey.shade800,
                                     fontSize: 16.0),
@@ -163,21 +156,29 @@ class Catalog extends State<CatalogHome> {
                                           fontWeight: FontWeight.bold)),
                                 ]),
                           ),
+                          ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.blueGrey.shade900),
+                              onPressed: () {
+                                saveData(index);
+                              },
+                              child: const Text('Pesan')),
                         ],
                       ),
                     ),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.blueGrey.shade900),
-                        onPressed: () {
-                          saveData(index);
-                        },
-                        child: const Text('Pesan')),
-                  ],
-                ),
+                  )
+                ],
               ),
-            );
-          }),
+            ),
+          );
+        },
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200,
+          childAspectRatio: 1,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+        ),
+      ),
     );
   }
 }

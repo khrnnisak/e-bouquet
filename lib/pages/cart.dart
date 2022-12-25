@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/dbhelper/dphelper.dart';
 import 'package:myapp/model/cart_model.dart';
+import 'package:myapp/pages/detail_order.dart';
 import 'package:myapp/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -29,6 +30,7 @@ class _CartPageState extends State<CartPage> {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xfff99da1),
         centerTitle: true,
         title: const Text('My Shopping Cart'),
         actions: [
@@ -75,9 +77,11 @@ class _CartPageState extends State<CartPage> {
                           elevation: 5.0,
                           child: Padding(
                             padding: const EdgeInsets.all(4.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              mainAxisSize: MainAxisSize.max,
+                            child: Wrap(
+                              spacing: 8.0, // gap between adjacent chips
+                              runSpacing: 5.0, // gap between lines
+                              direction: Axis
+                                  .horizontal, // main axis (rows or columns)
                               children: [
                                 Image(
                                   height: 80,
@@ -114,23 +118,7 @@ class _CartPageState extends State<CartPage> {
                                       RichText(
                                         maxLines: 1,
                                         text: TextSpan(
-                                            text: 'Unit: ',
-                                            style: TextStyle(
-                                                color: Colors.blueGrey.shade800,
-                                                fontSize: 16.0),
-                                            children: [
-                                              TextSpan(
-                                                  text:
-                                                      '${provider.cart[index].unitTag!}\n',
-                                                  style: const TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                            ]),
-                                      ),
-                                      RichText(
-                                        maxLines: 1,
-                                        text: TextSpan(
-                                            text: 'Price: ' r"$",
+                                            text: 'Harga: ' r"Rp ",
                                             style: TextStyle(
                                                 color: Colors.blueGrey.shade800,
                                                 fontSize: 16.0),
@@ -202,6 +190,25 @@ class _CartPageState extends State<CartPage> {
                                       Icons.delete,
                                       color: Colors.red.shade800,
                                     )),
+                                ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Colors.blueGrey.shade900),
+                                    onPressed: () {
+                                      dbHelper!.getOrderList(provider
+                                          .cart[index].productId
+                                          .toString());
+                                    },
+                                    child: GestureDetector(
+                                      child: const Text('Pesan'),
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailOrderPage(),
+                                            ));
+                                      },
+                                    )),
                               ],
                             ),
                           ),
@@ -226,7 +233,7 @@ class _CartPageState extends State<CartPage> {
                       builder: (context, val, child) {
                         return ReusableWidget(
                             title: 'Sub-Total',
-                            value: r'$' + (val?.toStringAsFixed(2) ?? '0'));
+                            value: r'Rp ' + (val?.toStringAsFixed(2) ?? '0'));
                       }),
                 ],
               );
@@ -235,27 +242,26 @@ class _CartPageState extends State<CartPage> {
         ],
       ),
       bottomNavigationBar: InkWell(
-        onTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Payment Successful'),
-              duration: Duration(seconds: 2),
+          onTap: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Pembayaran Berhasil'),
+                duration: Duration(seconds: 2),
+              ),
+            );
+          },
+          child: Container(
+            color: Colors.yellow.shade600,
+            alignment: Alignment.center,
+            height: 50.0,
+            child: const Text(
+              'Lanjutkan Pembayaran',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          );
-        },
-        child: Container(
-          color: Colors.yellow.shade600,
-          alignment: Alignment.center,
-          height: 50.0,
-          child: const Text(
-            'Proceed to Pay',
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
+          )),
     );
   }
 }

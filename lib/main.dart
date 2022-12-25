@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/catalog.dart';
 // import 'package:myapp/pages/cart.dart';
-// import 'package:myapp/pages/catalog.dart';
+import 'package:myapp/pages/catalog.dart';
 import 'package:myapp/pages/opening_page.dart';
 import 'package:myapp/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 primarySwatch: Colors.blue,
               ),
-              home: const OpeningPage());
+              home: CatalogHome());
         },
       ),
     );
