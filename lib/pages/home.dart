@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/bottom_navbar.dart';
-import 'package:myapp/pages/catalogue%20copy.dart';
+import 'package:myapp/pages/catalog.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/widgets/homeListItem.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -46,6 +46,7 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -111,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => CatalogHome(),
+                                    builder: (context) => const CatalogHome(),
                                   ));
                             }))
                 ],
