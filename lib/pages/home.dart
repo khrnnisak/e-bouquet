@@ -1,7 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/bottom_navbar.dart';
+import 'package:myapp/pages/catalogue%20copy.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/widgets/homeListItem.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,10 +30,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   List imgList = [
-    'assets/flutter-project/images/flo-1.png',
-    'assets/flutter-project/images/rectangle-13.png',
-    'assets/flutter-project/images/rectangle-14.png',
+    'assets/material/flower-1.png',
+    'assets/material/flower-2.png',
+    'assets/material/flower-3.png',
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +52,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             CarouselSlider(
               options: CarouselOptions(
-                height: 100.0,
+                height: 150.0,
                 autoPlay: true,
                 autoPlayInterval: const Duration(seconds: 3),
                 autoPlayAnimationDuration: const Duration(milliseconds: 800),
@@ -66,7 +70,8 @@ class _HomePageState extends State<HomePage> {
                     return Container(
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(i))));
+                            image: DecorationImage(
+                                image: AssetImage(i), fit: BoxFit.cover)));
                   },
                 );
               }).toList(),
@@ -79,18 +84,40 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white,
             ),
             Container(
-              margin: const EdgeInsets.only(top: 15, left: 10),
+              margin: const EdgeInsets.only(top: 15, left: 10, right: 10),
               alignment: Alignment.centerLeft,
-              child: Text(
-                'Baru-baru ini',
-                style: SafeGoogleFont(
-                  'Lexend Deca',
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Baru-baru ini',
+                    style: SafeGoogleFont(
+                      'Lexend Deca',
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  RichText(
+                      text: TextSpan(
+                          text: 'Lihat semua',
+                          style: SafeGoogleFont(
+                            'Lexend Deca',
+                            color: Colors.white,
+                            fontSize: 15,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CatalogHome(),
+                                  ));
+                            }))
+                ],
               ),
-            )
+            ),
+            const HomeListItem()
           ],
         ),
       ),
