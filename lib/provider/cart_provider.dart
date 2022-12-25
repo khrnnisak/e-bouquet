@@ -21,6 +21,13 @@ class CartProvider with ChangeNotifier {
     return cart;
   }
 
+  Future<List<Cart>> getOrder(String id) async {
+    final idx = cart.indexWhere((element) => element.productId == id);
+    cart = await dbHelper.getOrderList(idx.toString());
+    notifyListeners();
+    return cart;
+  }
+
   void _setPrefsItems() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt('cart_items', _counter);
