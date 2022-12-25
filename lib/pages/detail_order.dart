@@ -338,22 +338,6 @@ class DetailOrderPage extends StatelessWidget {
               ),
             ),
             Positioned(
-              // group3KE6 (58:52)
-              left: 0 * fem,
-              top: 849 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 428 * fem,
-                  height: 96 * fem,
-                  child: Image.asset(
-                    'assets/flutter-project/images/group-3.png',
-                    width: 428 * fem,
-                    height: 96 * fem,
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
               // total6eA (58:60)
               left: 34 * fem,
               top: 780 * fem,
