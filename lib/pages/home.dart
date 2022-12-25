@@ -46,6 +46,7 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -111,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => CatalogHome(),
+                                    builder: (context) => const CatalogHome(),
                                   ));
                             }))
                 ],
