@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/dbhelper/dphelper.dart';
 import 'package:myapp/model/cart_model.dart';
+import 'package:myapp/pages/detail_order.dart';
 import 'package:myapp/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -244,17 +245,23 @@ class _CartPageState extends State<CartPage> {
           );
         },
         child: Container(
-          color: Colors.yellow.shade600,
-          alignment: Alignment.center,
-          height: 50.0,
-          child: const Text(
-            'Proceed to Pay',
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+            color: Colors.yellow.shade600,
+            alignment: Alignment.center,
+            height: 50.0,
+            child: GestureDetector(
+              child: Text('Pesan',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailOrderPage(),
+                    ));
+              },
+            )),
       ),
     );
   }
