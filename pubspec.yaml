@@ -66,14 +66,6 @@ flutter:
     - assets/flutter-project/images/rectangle-12.png
     - assets/flutter-project/images/rectangle-14.png
     - assets/flutter-project/images/flo-1.png
-    - assets/flutter-project/images/b0f3110dbb8da679d6e7a5aab7166-1.png
-    - assets/flutter-project/images/e082fb0d8ee1358f0a171cb8c5d1bb06-1.png
-    - assets/flutter-project/images/a6628d8a32f09b3b3981fd93e87a30a-1.png
-    - assets/flutter-project/images/e082fb0d8ee1358f0a171cb8c5d1bb06-3-tb8.png
-    - assets/flutter-project/images/c24ac7fb3d1f836e83546ef83413fe-1.png
-    - assets/flutter-project/images/group-1.png
-    - assets/flutter-project/images/b9c3fa2be3d5b0e2b89143ac40a2fb-1-bg.png
-    - assets/flutter-project/images/navbar.png
     - assets/flutter-project/images/polygon-3.png
     - assets/flutter-project/images/group-2.png
     - assets/flutter-project/images/polygon-3-dkr.png
@@ -100,6 +92,7 @@ flutter:
     - assets/flutter-project/images/b0f3110dbb8da679d6e7a5aab7166-1-jdQ.png
     - assets/flutter-project/images/vector-gX8.png
     - assets/bouquet_catalog.db
+    - assets/material/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
