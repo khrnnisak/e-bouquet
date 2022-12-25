@@ -41,6 +41,7 @@ dependencies:
   provider: ^6.0.3
   flutter:
     sdk: flutter
+  cool_alert: ^1.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -63,6 +64,10 @@ flutter:
   assets:
     - assets/flutter-project/images/
     - assets/bouquet_catalog.db
+<<<<<<< HEAD
+=======
+    - assets/material/
+>>>>>>> cb7c24761a7d7ffb8e71797be1a0115013e700f8
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

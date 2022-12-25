@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/home.dart';
 import 'package:myapp/utils.dart';
 
 class OpeningPage extends StatelessWidget {
@@ -6,86 +7,105 @@ class OpeningPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 428;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
-    return SizedBox(
-      width: double.infinity,
-      child: Container(
-        padding: EdgeInsets.fromLTRB(65 * fem, 356 * fem, 31 * fem, 30 * fem),
-        width: double.infinity,
-        decoration: const BoxDecoration(
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      body: Container(
+        constraints: const BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          color: Colors.black,
           image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(
-              'assets/flutter-project/images/b9c3fa2be3d5b0e2b89143ac40a2fb-1-bg.png',
-            ),
-          ),
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.3), BlendMode.dstATop),
+              image: const AssetImage('assets/material/flower-op-screen.png'),
+              fit: BoxFit.cover),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              margin: EdgeInsets.only(right: 34 * fem, bottom: 270 * fem),
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  style: SafeGoogleFont(
-                    'Moon Dance',
-                    fontSize: 64 * ffem,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: -0.3000000119 * fem,
-                    color: const Color(0xffffffff),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Make',
+                        style: SafeGoogleFont(
+                          'Mouse Memoirs',
+                          color: Colors.white,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Text(
+                        ' your ',
+                        style: SafeGoogleFont(
+                          'Moon Dance',
+                          color: Colors.white,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
                   ),
-                  children: [
-                    TextSpan(
-                      text: 'Make',
-                      style: SafeGoogleFont(
-                        'Mouse Memoirs',
-                        fontSize: 64 * ffem,
-                        fontWeight: FontWeight.w400,
-                        color: const Color(0xffffffff),
-                      ),
-                    ),
-                    const TextSpan(
-                      text: ' your world ',
-                    ),
-                    TextSpan(
-                      text: 'blossom',
-                      style: SafeGoogleFont(
-                        'Mouse Memoirs',
-                        fontSize: 64 * ffem,
-                        fontWeight: FontWeight.w400,
-                        height: 1.3400000334 * ffem / fem,
-                        color: const Color(0xffffffff),
-                      ),
-                    ),
-                  ],
-                ),
+                  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'world ',
+                            style: SafeGoogleFont(
+                              'Moon Dance',
+                              color: Colors.white,
+                              fontSize: 40,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          Text(
+                            'blossom',
+                            style: SafeGoogleFont(
+                              'Mouse Memoirs',
+                              color: Colors.white,
+                              fontSize: 40,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ],
               ),
+              // child: Align(
+              //   alignment: Alignment.bottomRight,
+              //   child: ElevatedButton(
+              //     onPressed: () {},
+              //     style:
+              //         ElevatedButton.styleFrom(backgroundColor: Colors.amber),
+              //     child: const Text('Masuk'),
+              //   ),
+              // ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 140 * fem),
-              height: 50 * fem,
-              decoration: BoxDecoration(
-                color: const Color(0xfffd0079),
-                borderRadius: BorderRadius.circular(10 * fem),
-              ),
-              child: Center(
-                child: Center(
-                  child: Text(
-                    'Mulai',
-                    textAlign: TextAlign.center,
-                    style: SafeGoogleFont(
-                      'Montserrat',
-                      fontSize: 20 * ffem,
-                      fontWeight: FontWeight.w800,
-                      color: const Color(0xffffffff),
-                    ),
-                  ),
+              margin: const EdgeInsets.all(20),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ));
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xfffe007a)),
+                  child: const Text('Masuk'),
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
