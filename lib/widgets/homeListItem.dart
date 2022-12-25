@@ -24,7 +24,8 @@ class HomeListItem extends StatelessWidget {
                     margin: const EdgeInsets.all(10),
                     decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/flutter-project/images/fresh_blossom.jpg'),
+                          image: AssetImage(
+                              'assets/flutter-project/images/fresh_blossom.jpg'),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -56,7 +57,8 @@ class HomeListItem extends StatelessWidget {
                     margin: const EdgeInsets.all(10),
                     decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/flutter-project/images/graduated_with_sunflowers.jpg'),
+                          image: AssetImage(
+                              'assets/flutter-project/images/graduated_with_sunflowers.jpg'),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -88,7 +90,8 @@ class HomeListItem extends StatelessWidget {
                     margin: const EdgeInsets.all(10),
                     decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/flutter-proect/images/say_love.jpg'),
+                          image: AssetImage(
+                              'assets/flutter-project/images/say_love.jpg'),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(20))),

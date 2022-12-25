@@ -7,10 +7,10 @@
 
 
 ## Opening Page
-![Screenshot](images/opening.jpeg)
+![Screenshot](images/opening1.jpeg)
 ## Home Page
-![Screenshot](images/home.jpeg)
+![Screenshot](images/home1.jpeg)
 ## Catalogue Page
-![Screenshot](images/catalog.jpeg)
+![Screenshot](images/catalog1.jpeg)
 ## Cart Page
-![Screenshot](images/cart.jpeg)
+![Screenshot](images/cart1.jpeg)
