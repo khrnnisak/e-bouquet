@@ -232,7 +232,6 @@ class _CartPageState extends State<CartPage> {
           );
         },
         child: Container(
-<<<<<<< HEAD
           color: Colors.yellow.shade600,
           alignment: Alignment.center,
           height: 50.0,
@@ -244,25 +243,6 @@ class _CartPageState extends State<CartPage> {
             ),
           ),
         ),
-=======
-            color: Colors.yellow.shade600,
-            alignment: Alignment.center,
-            height: 50.0,
-            child: GestureDetector(
-              child: Text('Pesan',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailOrderPage(),
-                    ));
-              },
-            )),
->>>>>>> cb7c24761a7d7ffb8e71797be1a0115013e700f8
       ),
     );
   }
