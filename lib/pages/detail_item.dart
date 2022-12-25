@@ -31,7 +31,7 @@ class DetailItemPage extends StatelessWidget {
                     width: 448 * fem,
                     height: 572 * fem,
                     child: Image.asset(
-                      'assets/flutter-project/images/flo-1.png',
+                      'assets/flutter-project/images/graduated_with_sunflowers.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -63,7 +63,7 @@ class DetailItemPage extends StatelessWidget {
                     width: 383 * fem,
                     height: 66 * fem,
                     child: Text(
-                      'Buket Bunga Mawar',
+                      'Happy Graduation',
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Magra',
@@ -126,7 +126,7 @@ class DetailItemPage extends StatelessWidget {
                     width: 383 * fem,
                     height: 131 * fem,
                     child: Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+                      'Aura ceria dari cerahnya bunga matahari memberikan kebahagiaan kepada mereka yang sedang merayakan kelulusan',
                       style: SafeGoogleFont(
                         'Lateef',
                         fontSize: 30 * ffem,
