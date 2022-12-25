@@ -77,7 +77,7 @@ class HomeListItem extends StatelessWidget {
                         decoration: const BoxDecoration(
                             image: DecorationImage(
                               image:
-                                  AssetImage('assets/flutter-project/images/happy_graduation.jpg'),
+                                  AssetImage('assets/flutter-project/images/graduated_with_sunflowes.jpg'),
                               fit: BoxFit.cover,
                             ),
                             borderRadius:
