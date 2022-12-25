@@ -29,6 +29,7 @@ class _CartPageState extends State<CartPage> {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xfff99da1),
         centerTitle: true,
         title: const Text('My Shopping Cart'),
         actions: [
@@ -75,9 +76,11 @@ class _CartPageState extends State<CartPage> {
                           elevation: 5.0,
                           child: Padding(
                             padding: const EdgeInsets.all(4.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              mainAxisSize: MainAxisSize.max,
+                            child: Wrap(
+                              spacing: 8.0, // gap between adjacent chips
+                              runSpacing: 5.0, // gap between lines
+                              direction: Axis
+                                  .horizontal, // main axis (rows or columns)
                               children: [
                                 Image(
                                   height: 80,
@@ -114,23 +117,7 @@ class _CartPageState extends State<CartPage> {
                                       RichText(
                                         maxLines: 1,
                                         text: TextSpan(
-                                            text: 'Unit: ',
-                                            style: TextStyle(
-                                                color: Colors.blueGrey.shade800,
-                                                fontSize: 16.0),
-                                            children: [
-                                              TextSpan(
-                                                  text:
-                                                      '${provider.cart[index].unitTag!}\n',
-                                                  style: const TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                            ]),
-                                      ),
-                                      RichText(
-                                        maxLines: 1,
-                                        text: TextSpan(
-                                            text: 'Price: ' r"$",
+                                            text: 'Harga: ' r"Rp ",
                                             style: TextStyle(
                                                 color: Colors.blueGrey.shade800,
                                                 fontSize: 16.0),
@@ -226,7 +213,7 @@ class _CartPageState extends State<CartPage> {
                       builder: (context, val, child) {
                         return ReusableWidget(
                             title: 'Sub-Total',
-                            value: r'$' + (val?.toStringAsFixed(2) ?? '0'));
+                            value: r'Rp ' + (val?.toStringAsFixed(2) ?? '0'));
                       }),
                 ],
               );
@@ -238,7 +225,7 @@ class _CartPageState extends State<CartPage> {
         onTap: () {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('Payment Successful'),
+              content: Text('Pembayaran Berhasil'),
               duration: Duration(seconds: 2),
             ),
           );
@@ -248,7 +235,7 @@ class _CartPageState extends State<CartPage> {
           alignment: Alignment.center,
           height: 50.0,
           child: const Text(
-            'Proceed to Pay',
+            'Lanjutkan Pembayaran',
             style: TextStyle(
               fontSize: 18.0,
               fontWeight: FontWeight.bold,

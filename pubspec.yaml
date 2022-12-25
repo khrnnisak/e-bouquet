@@ -61,47 +61,9 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-<<<<<<< HEAD
     - assets/flutter-project/images/
     - assets/bouquet_catalog.db
 
-=======
-    - assets/flutter-project/images/e082fb0d8ee1358f0a171cb8c5d1bb06-3.png
-    - assets/flutter-project/images/e082fb0d8ee1358f0a171cb8c5d1bb06-3-ALe.png
-    - assets/flutter-project/images/rectangle-13.png
-    - assets/flutter-project/images/f6e694b4069ee978ab28252eea1117c-1.png
-    - assets/flutter-project/images/cba8974a0d88e2d344ed1f719c74d5c7-1.png
-    - assets/flutter-project/images/rectangle-12.png
-    - assets/flutter-project/images/rectangle-14.png
-    - assets/flutter-project/images/flo-1.png
-    - assets/flutter-project/images/polygon-3.png
-    - assets/flutter-project/images/group-2.png
-    - assets/flutter-project/images/polygon-3-dkr.png
-    - assets/flutter-project/images/group-3.png
-    - assets/flutter-project/images/polygon-2.png
-    - assets/flutter-project/images/union.png
-    - assets/flutter-project/images/e082fb0d8ee1358f0a171cb8c5d1bb06-2.png
-    - assets/flutter-project/images/vector.png
-    - assets/flutter-project/images/e082fb0d8ee1358f0a171cb8c5d1bb06-1-udG.png
-    - assets/flutter-project/images/union-6AS.png
-    - assets/flutter-project/images/vector-qaW.png
-    - assets/flutter-project/images/polygon-1.png
-    - assets/flutter-project/images/vector-oxz.png
-    - assets/flutter-project/images/vector-A6i.png
-    - assets/flutter-project/images/vector-dJN.png
-    - assets/flutter-project/images/vector-vtN.png
-    - assets/flutter-project/images/shopping-cart.png
-    - assets/flutter-project/images/cba8974a0d88e2d344ed1f719c74d5c7-1-Rjt.png
-    - assets/flutter-project/images/vector-eV4.png
-    - assets/flutter-project/images/polygon-1-QSJ.png
-    - assets/flutter-project/images/group-2-BqY.png
-    - assets/flutter-project/images/vector-X8i.png
-    - assets/flutter-project/images/e082fb0d8ee1358f0a171cb8c5d1bb06-2-zTG.png
-    - assets/flutter-project/images/b0f3110dbb8da679d6e7a5aab7166-1-jdQ.png
-    - assets/flutter-project/images/vector-gX8.png
-    - assets/bouquet_catalog.db
-    - assets/material/
->>>>>>> 6dfb334b0c68b053d075befdb714c5cdc6016db7
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
