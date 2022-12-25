@@ -53,20 +53,7 @@ class DetailOrder extends State<DetailOrderPage> {
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
     void saveData(int index) {
-      dbHelper
-          .getOrderList(
-        Cart(
-          id: index,
-          productId: index.toString(),
-          productName: bouquet_list[index].nama,
-          initialPrice: bouquet_list[index].harga,
-          productPrice: bouquet_list[index].harga,
-          quantity: ValueNotifier(1),
-          image: bouquet_list[index].gambar,
-          unitTag: '',
-        ),
-      )
-          .then((value) {
+      dbHelper.getOrderList(bouquet_list[index].id).then((value) {
         cart.addTotalPrice(bouquet_list[index].harga.toDouble());
         cart.addCounter();
         print('Product Added to cart');
@@ -164,6 +151,31 @@ class DetailOrder extends State<DetailOrderPage> {
                                           fontWeight: FontWeight.bold)),
                                 ]),
                           ),
+                          Consumer<CartProvider>(
+                            builder:
+                                (BuildContext context, value, Widget? child) {
+                              final ValueNotifier<int?> totalPrice =
+                                  ValueNotifier(null);
+                              for (var element in value.cart) {
+                                totalPrice.value = (element.productPrice! *
+                                        element.quantity!.value) +
+                                    (totalPrice.value ?? 0);
+                              }
+                              return Column(
+                                children: [
+                                  ValueListenableBuilder<int?>(
+                                      valueListenable: totalPrice,
+                                      builder: (context, val, child) {
+                                        return ReusableWidget(
+                                            title: 'Sub-Total',
+                                            value: r'Rp ' +
+                                                (val?.toStringAsFixed(2) ??
+                                                    '0'));
+                                      }),
+                                ],
+                              );
+                            },
+                          )
                         ],
                       ),
                     ),
